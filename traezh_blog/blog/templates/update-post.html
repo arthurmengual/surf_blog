@@ -1,0 +1,9 @@
+{% extends 'base.html' %} {% block title %} add-post {% endblock %} {% block content %}
+<h1>UPDATE POST</h1>
+<form method="post">
+  {% csrf_token %} {{form.as_p}}<button class="btn btn-primary" action="submit">Envoyer</button>
+</form>
+<br />
+<br />
+<a href="{% url 'blog:post-detail' post.id %}"><button class="btn btn-primary" action="submit">Back</button></a>
+{% endblock %}
