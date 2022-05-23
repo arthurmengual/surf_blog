@@ -1,6 +1,27 @@
 {% extends 'registration/base.html' %} {% block content %}
+<style>
+  h1 {
+    text-align: center;
+    margin-top: 3rem;
+  }
+  .form {
+    text-align: center;
+    margin: 3rem;
+    font-weight: bold;
+  }
+  .buttons {
+    text-align: center;
+  }
+  .btn {
+    margin-left: 3rem;
+  }
+</style>
 <h1>Login Page</h1>
-<form method="post">{% csrf_token %}{{form.as_p}} <button class="btn btn-primary">Valider</button></form>
-<br />
-<a href="{% url 'authentication:index' %}"><button class="btn btn-primary">Back</button></a>
+<form method="post">
+  <div class="form">{% csrf_token %}{{form.as_p}}</div>
+  <div class="buttons">
+    <a href="{% url 'authentication:index' %}">Back</a>
+    <button class="btn btn-primary" type="submit">Valider</button>
+  </div>
+</form>
 {% endblock %}

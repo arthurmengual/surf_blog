@@ -1,5 +1,22 @@
-{% extends 'registration/base.html' %} {% block content %}
+{% extends 'registration/base.html' %} {% block content %} {% load static %}
+<style>
+  h1 {
+    text-align: center;
+    margin-top: 2em;
+    border: solid black;
+  }
+  .block {
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+  }
+  a {
+    margin: 2rem;
+  }
+</style>
 <h1>Traezh Blog</h1>
-<a href="{% url 'login' %}"><button class="btn btn-primary">Login</button></a>
-<a href="{% url 'authentication:signup' %}"><button class="btn btn-primary">Signup</button></a>
+<div class="block">
+  <a href="{% url 'login' %}"><button class="btn btn-primary">Login</button></a>
+  <a href="{% url 'authentication:signup' %}"><button class="btn btn-primary">Signup</button></a>
+</div>
 {% endblock %}

@@ -1,4 +1,12 @@
 {% extends 'base.html' %} {% block title %} {{post.title}} {% endblock %} {% block content %}
+<style>
+  .buttons {
+    display: flex;
+  }
+  .buttons a {
+    margin-right: 2rem;
+  }
+</style>
 <h1>POST DETAIL</h1>
 <br />
 <div class="post">
@@ -13,11 +21,13 @@
   <br />
   <h3>{{post.body}}</h3>
 </div>
-<a href="{% url 'blog:update-post' post.id %}"><button type="button" class="btn btn-primary">update post</button></a>
 <br />
 <br />
-<a href="{% url 'blog:delete-post' post.id %}"><button type="button" class="btn btn-primary">delete post</button></a>
 <br />
-<br />
-<a href="{% url 'blog:home' %}"><button type="button" class="btn btn-primary">Back</button></a>
+<div class="buttons">
+  <a href="{% url 'blog:home' %}">Back</a>
+  <a href="{% url 'blog:update-post' post.id %}"><button type="button" class="btn btn-primary">update post</button></a>
+  <a href="{% url 'blog:delete-post' post.id %}"><button type="button" class="btn btn-primary">delete post</button></a>
+</div>
+
 {% endblock %}

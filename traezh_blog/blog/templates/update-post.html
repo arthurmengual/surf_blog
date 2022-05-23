@@ -1,9 +1,14 @@
 {% extends 'base.html' %} {% block title %} add-post {% endblock %} {% block content %}
+<style>
+  .btn {
+    margin-left: 2rem;
+  }
+</style>
 <h1>UPDATE POST</h1>
 <form method="post" enctype="multipart/form-data">
-  {% csrf_token %} {{form.as_p}}<button class="btn btn-primary" action="submit">Envoyer</button>
+  {% csrf_token %} {{form.as_p}} <a href="{% url 'blog:post-detail' post.id %}">Back</a>
+  <button class="btn btn-primary" action="submit">Envoyer</button>
 </form>
 <br />
 <br />
-<a href="{% url 'blog:post-detail' post.id %}"><button class="btn btn-primary" action="submit">Back</button></a>
 {% endblock %}
