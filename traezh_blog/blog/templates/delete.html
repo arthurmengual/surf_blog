@@ -3,8 +3,8 @@
 <h2>Are you sure you want to delete "{{post.title}}"?</h2>
 <br />
 <form method="post">
-  {% csrf_token %} <button class="btn btn-primary" action="submit">Yes</button> <br /><br />
-  <a href="{% url 'blog:post-detail' post.id %}"><button class="btn btn-primary" action="submit">No</button> </a>
+  {% csrf_token %}
+  <button class="btn btn-primary" action="submit">Yes</button>
 </form>
 
 {% endblock %}

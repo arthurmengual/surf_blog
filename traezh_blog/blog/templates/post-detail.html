@@ -3,7 +3,14 @@
 <br />
 <div class="post">
   <h1>{{post.title}}</h1>
-  <h2>{{post.author.username}}</h2>
+  <span><strong>by:</strong> {{post.author.username}} / <strong>date:</strong> {{post.date}}</span>
+  <br />
+  {% if post.image %}
+  <br />
+  <img src="{{post.image.url}}" />
+  <br />
+  {% endif %}
+  <br />
   <h3>{{post.body}}</h3>
 </div>
 <a href="{% url 'blog:update-post' post.id %}"><button type="button" class="btn btn-primary">update post</button></a>

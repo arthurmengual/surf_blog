@@ -1,0 +1,6 @@
+{% extends 'registration/base.html' %} {% block content %}
+<h1>Login Page</h1>
+<form method="post">{% csrf_token %}{{form.as_p}} <button class="btn btn-primary">Valider</button></form>
+<br />
+<a href="{% url 'authentication:index' %}"><button class="btn btn-primary">Back</button></a>
+{% endblock %}

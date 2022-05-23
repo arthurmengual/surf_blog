@@ -1,0 +1,5 @@
+{% extends 'registration/base.html' %} {% block content %}
+<h1>Traezh Blog</h1>
+<a href="{% url 'login' %}"><button class="btn btn-primary">Login</button></a>
+<a href="{% url 'authentication:signup' %}"><button class="btn btn-primary">Signup</button></a>
+{% endblock %}

@@ -5,10 +5,12 @@ from django.urls import reverse_lazy
 
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'registration/index.html')
 
 
 class RegisterView(CreateView):
     form_class = UserCreationForm
-    template_name = 'accounts/register.html'
-    succes_url = reverse_lazy('accounts:login')
+    template_name = 'registration/register.html'
+
+    def get_success_url(self):
+        return reverse_lazy('login')

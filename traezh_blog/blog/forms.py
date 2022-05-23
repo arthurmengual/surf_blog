@@ -18,7 +18,7 @@ class PostForm(forms.ModelForm):
 class UpdatePostForm(forms.ModelForm):
     class Meta:
         model = models.Post
-        fields = ('title', 'body')
+        fields = ('title', 'image', 'body')
 
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control', 'PlaceHolder': 'Title'}),

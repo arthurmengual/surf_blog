@@ -22,6 +22,10 @@
   <span><strong>by:</strong> {{post.author.username}} / <strong>date:</strong> {{post.date}}</span>
   <br />
   <br />
+  {% if post.image %}
+  <img src="{{post.image.url}}" />
+  {% endif %}
+  <br /><br />
   <h3>{{post.body}}</h3>
 </div>
 {% endfor %} {% endblock %}

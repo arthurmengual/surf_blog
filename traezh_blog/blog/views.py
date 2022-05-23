@@ -2,6 +2,7 @@ from . import models
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from . import forms
 from django.urls import reverse, reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 # def home(request):
@@ -9,13 +10,13 @@ from django.urls import reverse, reverse_lazy
 #     context = {'posts': posts}
 #     return render(request, 'home.html', context=context)
 
-class HomeView(ListView):
+class HomeView(LoginRequiredMixin, ListView):
     model = models.Post
     template_name = 'home.html'
     ordering = ['-date']
 
 
-class DetailPostView(DetailView):
+class DetailPostView(LoginRequiredMixin, DetailView):
     model = models.Post
     template_name = 'post-detail.html'
 
@@ -30,19 +31,19 @@ class DetailPostView(DetailView):
 #     context = {'form': form}
 #     return render(request, 'add-post', context=context)
 
-class AddPost(CreateView):
+class AddPost(LoginRequiredMixin, CreateView):
     model = models.Post
     template_name = 'add-post.html'
     form_class = forms.PostForm
 
 
-class UpdatePost(UpdateView):
+class UpdatePost(LoginRequiredMixin, UpdateView):
     model = models.Post
     template_name = 'update-post.html'
     form_class = forms.UpdatePostForm
 
 
-class DeletePost(DeleteView):
+class DeletePost(LoginRequiredMixin, DeleteView):
     model = models.Post
     template_name = 'delete.html'
     success_url = reverse_lazy('blog:home')
